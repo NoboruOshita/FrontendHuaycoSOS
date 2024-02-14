@@ -1,4 +1,11 @@
-# CemoCrud
+# Desarrollado por:
+- Alexander Noboru Oshita Rea
+- Rodrigo Antonio Velarde Galindo
+- Michael Andre Samuel Cuadros Ccahuana
+- Marcel Stephano Salvatore Uribe Ballena
+- Victor Manuel Ramirez Lazart
+
+# CemoCrud (Frontend de Aplicación Web de HuaycoSOS)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
