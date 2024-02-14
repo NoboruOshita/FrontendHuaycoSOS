@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form [formGroup]="form"(submit)="aceptar()">
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>idDonacion</mat-label>
+      <input matInput placeholder="idDonacion" formControlName="idDonacion">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>tipo</mat-label>
+      <input matInput placeholder="tipo" formControlName="tipo">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>viveres</mat-label>
+      <input matInput placeholder="viveres" formControlName="viveres">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>cantidad</mat-label>
+      <input matInput placeholder="cantidad" formControlName="cantidad">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Caso</mat-label>
+      <mat-select formControlName="caso" [(value)]="idCasoSeleccionado" required>
+        <mat-option *ngFor="let t of listaCaso" [value]="t.idCaso">
+          {{t.titulo}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <mat-select formControlName="usuario" [(value)]="idUsuarioSeleccionado" required>
+        <mat-option *ngFor="let us of listaUs" [value]="us.idUsuario">
+          {{us.apellidos}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <h1>{{mensaje}} </h1>
+
+    <button mat-raised-button color="primary"  (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/pages/donaciones">Cancelar</button>
+
+
+  </form>
+  <p>{{mensaje}}</p>
+</body>
+</html>

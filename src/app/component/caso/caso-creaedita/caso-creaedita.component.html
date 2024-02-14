@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form [formGroup]="form"(submit)="aceptar()">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Id Caso</mat-label>
+      <input matInput placeholder="id" formControlName="idCaso">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Titulo</mat-label>
+      <input matInput placeholder="titulo" formControlName="titulo">
+    </mat-form-field>
+
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Argumento</mat-label>
+      <input matInput placeholder="argumento" formControlName="argumento">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Id Usuario</mat-label>
+      <mat-select formControlName="idUsuario" [(value)]="idUsuarioSeleccionado" required>
+        <mat-option *ngFor="let us of listaUs" [value]="us.idUsuario">
+          {{us.apellidos}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Id Tipo</mat-label>
+      <mat-select formControlName="idTipoDeCaso" [(value)]="idTipoSeleccionado" required>
+        <mat-option *ngFor="let t of listaT" [value]="t.idTipoDeCaso">
+          {{t.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Id Ubicación</mat-label>
+      <mat-select formControlName="idUbicacion" [(value)]="idUbicacionSeleccionado" required>
+        <mat-option *ngFor="let ub of listaU" [value]="ub.idUbicacion">
+          {{ub.direccion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    <h1>{{mensaje}} </h1>
+
+    <button mat-raised-button color="primary"  (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/pages/caso">Cancelar</button>
+
+
+  </form>
+  <p>{{mensaje}}</p>
+</body>
+</html>
+
+

@@ -1,0 +1,61 @@
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,*::before,*::after{
+  box-sizing: inherit;
+}
+body{
+background-image: url(/assets/img/OIP.jpg);
+background-size:cover;
+background-position: center;
+background-repeat: no-repeat;
+background-color: rgba(255, 255, 255, 0.7);
+}
+
+p{
+font-size: .8rem;
+}
+
+.container{
+display: grid;
+justify-items: center;
+}
+@media (min-width: 768px) {
+.container{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-items: center;
+  padding: 9rem;
+  align-items: center;
+}
+}
+
+.container-interface{
+background-color: rgb(234, 241, 236) ;
+padding: 0rem 6rem;
+
+}
+@media (max-width: 768px) {
+.container-interface{
+  position: relative;
+  top: 7rem;
+}
+}
+
+/* md en imagen */
+.container img{
+max-width: 115%;;
+margin: -7rem;
+background-size: cover;
+}
+@media (max-width: 768px) {
+.container img{
+  max-width: 140%;
+  position: relative;
+  z-index: -1;
+  margin-top: -35rem;
+  }
+}
+
+

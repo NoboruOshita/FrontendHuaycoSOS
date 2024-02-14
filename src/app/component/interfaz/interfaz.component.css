@@ -1,0 +1,40 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+li{
+  color: black;
+}
+ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  background-color:rgb(201, 201, 201);
+  padding: 15px 50px;
+}
+
+.caja1, .caja2, .caja3{
+  width: 30%;
+}
+
+.Cuerpo{
+  text-align: center;
+  padding: 50px 0px;
+}
+
+.Cuerpo h1{
+  padding: 50px 0px;
+}
+.line1, .line2{
+  display: flex;
+}
+.caja1,.caja2, .caja3{
+  padding: 50px 20px;
+}

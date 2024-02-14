@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: center;"></div>
+      <h1>Registrar Usuario</h1>
+  </div>
+  <form [formGroup]="form" (submit)="aceptar()">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>id</mat-label>
+      <input matInput required placeholder ="Id" formControlName="idUsuario">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Usuario</mat-label>
+      <input matInput required placeholder ="Usuario" formControlName="username">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Contraseña</mat-label>
+      <input matInput required placeholder ="Contraseña" formControlName="password" type="password">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field  class="example-full-width">
+      <mat-label>Habilitado</mat-label>
+      <mat-select formControlName="enabled">
+        <mat-option [value]= "true">True</mat-option>
+        <mat-option [value]= "false">False</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombres</mat-label>
+      <input matInput required placeholder ="Nombres" formControlName="nombres">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Apellidos</mat-label>
+      <input matInput required placeholder ="Apellidos" formControlName="apellidos">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Edad</mat-label>
+      <input matInput required placeholder ="Edad" formControlName="edad">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefono</mat-label>
+      <input matInput required placeholder ="Telefono" formControlName="telefono">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Correo Electronico</mat-label>
+      <input matInput required placeholder ="Correo Electronico" formControlName="correo">
+    </mat-form-field>
+
+    <br>
+    <div style="text-align: center;">
+      <button class="btA" mat-raised-button-color="primary">Aceptar</button>
+      <button class="btC" mat-raised-button-color="warn" routerLink="/pages/usuario">Cancelar</button>
+    <br>
+    </div>
+    <p>{{mensaje}}</p>
+  </form>
+
+</body>
+</html>
+

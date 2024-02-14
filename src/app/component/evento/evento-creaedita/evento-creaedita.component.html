@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form [formGroup]="form"(submit)="aceptar()">
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>idEvento</mat-label>
+      <input matInput placeholder="idEvento" formControlName="idEvento" readonly>
+    </mat-form-field>
+
+
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>descripcion</mat-label>
+      <input matInput placeholder="descripcion" formControlName="descripcion">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>ubicacion</mat-label>
+      <input matInput placeholder="ubicacion" formControlName="ubicacion">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Inicio</mat-label>
+      <input matInput [matDatepicker]="iniciopicker" formControlName='inicio' [max]="maxFecha">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="iniciopicker"></mat-datepicker-toggle>
+      <mat-datepicker #iniciopicker></mat-datepicker>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Fin</mat-label>
+      <input matInput [matDatepicker]="finpicker" formControlName='fin' [max]="maxFecha">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="finpicker"></mat-datepicker-toggle>
+      <mat-datepicker #finpicker></mat-datepicker>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <mat-select formControlName="donador" [(value)]="idUsuario1Seleccionado" required>
+         <mat-option *ngFor="let a of lista" [value]="a.idUsuario">
+          {{a.nombres}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+
+    <h1>{{evento}} </h1>
+
+    <button mat-raised-button color="primary"  (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/pages/eventos">Cancelar</button>
+
+
+  </form>
+  <p>{{evento}}</p>
+</body>
+</html>
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form [formGroup]="form"(submit)="aceptar()">
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>idMensaje</mat-label>
+      <input matInput placeholder="idMensaje" formControlName="idMensaje" readonly>
+    </mat-form-field>
+
+
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>descrpcion</mat-label>
+      <input matInput placeholder="descripcion" formControlName="descripcion">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Emisor</mat-label>
+      <mat-select formControlName="emisor" [(value)]="idUsuario1Seleccionado" required>
+         <mat-option *ngFor="let a of lista" [value]="a.idUsuario">
+          {{a.nombres}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Receptor</mat-label>
+      <mat-select formControlName="receptor" [(value)]="idUsuario2Seleccionado" required>
+        <mat-option *ngFor="let c of lista" [value]="c.idUsuario">
+          {{c.nombres}}
+         </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <h1>{{mensaje}} </h1>
+
+    <button mat-raised-button color="primary"  (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/pages/mensajes">Cancelar</button>
+
+
+  </form>
+  <p>{{mensaje}}</p>
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+<router-outlet></router-outlet>
+<div [hidden]="role === 'DAMNIFICADO' || role === 'DONADOR'">
+ <div [hidden]="route.children.length!==0">
+
+
+
+
+
+  <mat-tab-group>
+    <mat-tab label="Cuentas bancarias por usuario">   <app-reportec1></app-reportec1> </mat-tab>
+    <mat-tab label="Usuario con mas cuentas bancarias">  <app-reportec2></app-reportec2> </mat-tab>
+    <mat-tab label="Cantidad de eventos por usuario">   <app-reporteu1></app-reporteu1> </mat-tab>
+    <mat-tab label="Cantidad de ubicaciones por departamento">     <app-reporteu2></app-reporteu2>> </mat-tab>
+  </mat-tab-group>
+ </div>
+</div>
+<h3 [hidden]="role === 'ADMIN'" >ACCESO DENEGADO: Solo los administradores pueden ver los reportes</h3>

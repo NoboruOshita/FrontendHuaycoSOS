@@ -1,0 +1,32 @@
+
+<body>
+
+<div ngClass="container">
+  <div ngClass="container-interface">
+<h1>Ingrese a su cuenta</h1>
+        <div>
+          <mat-form-field class="fill">
+            <mat-label>Usuario</mat-label>
+            <input matInput  placeholder="Username" [(ngModel)]="username">
+          </mat-form-field>
+        </div>
+        <br>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input placeholder="Contraseña" matInput [type]="hide ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password">
+        </mat-form-field>
+        </div>
+        <br>
+      <br>
+      <div>
+        <button id="toggleButton2" mat-flat-button color="primary"
+        [ngStyle]="{'position':'relative', 'left':'2.5rem', 'bottom':'2rem'}" (click)="login()">Iniciar Sesión
+        </button>
+      </div>
+    </div>
+      <div ngClass="container-Img">
+        <img [src]="image_logo" alt="logo">
+      </div>
+    </div>
+  </body>

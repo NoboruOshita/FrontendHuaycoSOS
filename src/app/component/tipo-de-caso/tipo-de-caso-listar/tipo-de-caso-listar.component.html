@@ -1,0 +1,79 @@
+
+<mat-tab-group>
+  <mat-tab label="Listar Tipos de Caso">   <div style="text-align: right;">
+    <button  [hidden]="role === 'DAMNIFICADO' || role === 'DONADOR'" mat-raised-button color="primary" routerLink="/pages/Tipos_de_caso/nuevo">Nuevo</button>
+  </div>
+  <mat-form-field>
+    <input matInput (keyup)=filter($event) placeholder="buscar"/>
+  </mat-form-field>
+  <div style="text-align: center;">
+    <h1>Lista de Tipos de Casos</h1>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Column Definitions -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let element">{{element.idTipoDeCaso}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+      <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="acciones1">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button  [hidden]="role === 'DAMNIFICADO' || role === 'DONADOR'" mat-raised-button color="primary" [routerLink]="['edicion',element.idTipoDeCaso]"><mat-icon>edit</mat-icon></button>
+        <button  [hidden]="role === 'DAMNIFICADO' || role === 'DONADOR'" mat-raised-button color="accent" (click)="boton_eliminar(element.idTipoDeCaso)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+    <!--- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table> </mat-tab>
+
+
+
+
+  <mat-tab label="Numero de caso por TIPO DE CASO">
+    <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+
+      <!--- Column Definitions -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre de tipo de caso</th>
+        <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="contador">
+        <th mat-header-cell *matHeaderCellDef>Contador</th>
+        <td mat-cell *matCellDef="let element">{{element.contador}}</td>
+      </ng-container>
+
+
+      <!--- Table Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+    </table>
+
+    <h3 [hidden]="role === 'ADMIN'" >ACCESO DENEGADO: Solo los administradores pueden ver esta sección</h3>
+
+  </mat-tab>
+
+</mat-tab-group>
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<p>ubicacion-creaedita works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de las Ubicaciones</h1>
+
+  <form [formGroup]="form" (submit)="aceptar()">
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" formControlName="idUbicacion">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Departamento</mat-label>
+      <input matInput placeholder="Departamento" formControlName="departamento">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Distrito</mat-label>
+      <input matInput placeholder="Distrito" formControlName="distrito">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Direccion</mat-label>
+      <input matInput placeholder="Direccion" formControlName="direccion">
+    </mat-form-field>
+    <br>
+    <button mat-flat-button color="primary"(click)="aceptar()">aceptar</button>
+    <button mat-flat-button color="warn" routerLink="/pages/ubicaciones">Cancelar</button>
+    <p>{{mensaje}}</p>
+  </form>
+</div>
+</body>
+
+</html>

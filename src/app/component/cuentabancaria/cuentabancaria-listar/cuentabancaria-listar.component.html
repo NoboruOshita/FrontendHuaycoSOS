@@ -1,0 +1,57 @@
+<div [hidden]="role === 'DAMNIFICADO' || role === 'DONADOR'" >
+  <h1></h1>
+  <div style="text-align: center;">
+    <h1>Lista de Cuentas bancarias</h1>
+    </div>>
+  <mat-form-field>
+    <input matInput (keyup)="filtrar($event)"placeholder="Buscar">
+  </mat-form-field>
+
+  <div style="text-align: right;">
+    <button mat-raised-button color="primary" routerLink="/pages/cuentabancarias/nuevo" >Nuevo Cuenta Bancaria</button>
+  </div>
+
+  <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Column Definitions -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let element">{{element.idCuentabancaria}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="numero">
+      <th mat-header-cell *matHeaderCellDef>numero</th>
+      <td mat-cell *matCellDef="let element">{{element.numero}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cvv">
+      <th mat-header-cell *matHeaderCellDef>cvv</th>
+      <td mat-cell *matCellDef="let element">{{element.cvv}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="vencimiento">
+      <th mat-header-cell *matHeaderCellDef>vencimiento</th>
+      <td mat-cell *matCellDef="let element">{{element.vencimiento}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef>Usuario</th>
+      <td mat-cell *matCellDef="let element">{{element.usuario.nombres}} {{element.usuario.apellidos}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="accent" [routerLink]="['/pages/cuentabancarias/edicion', element.idCuentabancaria]"><span><mat-icon>edit</mat-icon></span></button>
+        <button mat-raised-button color="warn" (click)="boton_eliminar(element.idCuentabancaria)"><span class="material-icons">delete</span>id: {{element.idCuentabancaria}}</button>
+    </ng-container>
+
+    <!--- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+
+<h3 [hidden]="role === 'ADMIN'" >ACCESO DENEGADO: Solo los administradores pueden ver las cuentas bancarias</h3>

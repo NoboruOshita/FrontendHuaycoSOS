@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form [formGroup]="form"(submit)="aceptar()">
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>title*</mat-label>
+      <input matInput placeholder="title" formControlName="title">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>description*</mat-label>
+      <input matInput placeholder="apellidos" formControlName="description">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>points*</mat-label>
+      <input matInput placeholder="points" formControlName="points">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>businessId</mat-label>
+      <input matInput placeholder="businessId" formControlName="businessId">
+    </mat-form-field>
+
+    <h1>{{mensaje}} </h1>
+
+    <button mat-raised-button color="primary" (click)="aceptar()">{{boton_guardar}}</button>
+    <button mat-raised-button color="warn" routerLink="/business/offers">Cancelar</button>
+<p>{{mensaje}}</p>
+
+  </form>
+</body>
+</html>
+

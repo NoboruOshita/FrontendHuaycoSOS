@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form [formGroup]="form"(submit)="aceptar()">
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>idCuentabancaria</mat-label>
+      <input matInput placeholder="idCuentabancaria" formControlName="idCuentabancaria">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>numero</mat-label>
+      <input matInput placeholder="numero" formControlName="numero">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>cvv</mat-label>
+      <input matInput placeholder="cvv" formControlName="cvv">
+    </mat-form-field>
+
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>vencimiento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName='vencimiento' [max]="maxFecha">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <mat-select formControlName="usuario" [(value)]="idUsuarioSeleccionado" required>
+        <mat-option *ngFor="let uss of listaUs" [value]="uss.idUsuario">
+          {{uss.apellidos}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/pages/cuentabancarias">Cancelar</button>
+<p>{{mensaje}}</p>
+
+  </form>
+</body>
+</html>
+
